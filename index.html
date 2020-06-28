@@ -1,0 +1,343 @@
+<! DOCTYPE html>
+<html>
+
+<body>
+
+  <head>
+    <!-- Local CSS file -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+  </head>
+  <!-- Calculator -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <form class="calculator-form">
+          <div class="form-row">
+            <div class="form-group  col-sm-6">
+              <label for="inputEmail4">SKU</label>
+              <input type="text" class="form-control form-control-sm" id="skuNumber" placeholder="SKU Number" required>
+            </div>
+            <div class="form-group  col-sm-6">
+              <label>Vendor </label>
+              <input type="text" class="form-control form-control-sm" id="vendorName" placeholder="Vendor Name" required>
+            </div>
+          </div>
+
+          <div class="form-group ">
+            <label>Item </label>
+            <input type="text" class="form-control form-control-sm" id="itemName" placeholder="Item Name" required>
+          </div>
+
+
+          <div>
+            <div>
+              <label>Our Cost</label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="ourcostDollars" required>
+              </div>.
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="ourcostCents" required>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <label for="inputEmail4">Our Shipping</label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="ourShippingDollars" required>
+              </div>.
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="ourShippingCents" required>
+              </div>
+            </div>
+          </div>
+
+
+          <div>
+            <div>
+              <label for="inputEmail4">Packaging Cost</label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="packagingCostDollars" required>
+              </div>.
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="packagingCostCents" required>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <label for="inputEmail4">Profit Margin (%)</label>
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="profitMarginPercentWhole" required>
+              </div>.
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="profitMarginPercentDecimal" required>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <label>Buffer (%)</label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="bufferWhole" required>
+              </div>.
+              <div class="form-group  col-sm-5">
+                <input type="number" class="form-control form-control-sm" id="bufferDecimal" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group ">
+            <label>Sell Price </label>
+            <input type="text" class="form-control form-control-sm" id="sellPrice" disabled>
+          </div>
+
+
+          <div class="form-row">
+            <button type="submit" class="btn btn-sm btn-primary add-record">Calculate</button>
+            <a class="btn btn-sm btn-success add-record " data-added="0 ">
+              Add </button>
+            </a>
+            <button type="reset" class="btn btn-sm btn-warning resetButton">Reset</button>
+
+          </div>
+        </form>
+      </div>
+      <!-- __________________________________________________________________________ -->
+
+
+      <div class="col-sm-9 calculatedTable">
+        <div class="float-right prinAndResetBtns">
+          <a class=" printBtn" onclick='printDiv();'>Print</a>
+          <a class="resetTable tableResetBtn">Reset table</a>
+        </div>
+        <form enctype="multipart/form-data" id="test">
+          <table class="table table-bordered " id="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>SKU</th>
+                <th>vendor</th>
+                <th>Item</th>
+                <th>cost</th>
+                <th>SHP</th>
+                <th>PKG</th>
+                <th>Total Cost</th>
+                <th>Profit %</th>
+                <th>Buffer % </th>
+                <th>Low SP</th>
+                <th>up SP</th>
+                <th>Action</th>
+
+              </tr>
+            </thead>
+            <tbody id="tbl_posts_body">
+
+            </tbody>
+          </table>
+      </div>
+      </form>
+      <!-- Footer -->
+      <div class="col-md-12 footer">
+        <nav class="navbar navbar-light bg-light">
+          <div class="row">
+            <div class="col-md-4">
+              <a class="navbar-brand" href="#">
+                <img src="assets/images/logo.png">
+              </a>
+            </div>
+            <div class="footerInfo float-right">
+              <a href="https://dynamicIOTech.com"> Developed by Dynamic IO Technologies
+              </a> for
+              <a href="https://bloomarmor.com"> Bloom Armor</a>
+            </div>
+            <div class="float-right">
+              Copyright © Dynamic IO Technologies
+            </div>
+
+          </div>
+
+        </nav>
+      </div>
+
+
+      <!-- +++++++++++++++++ Script +++++++++++++++++++++++++++++++++ -->
+
+      <!-- Mathematical Calculation code -->
+      <script>
+        let id = 0;
+        let sku;
+        let vendor;
+        let item;
+        let ourCost;
+        let shippingCost;
+        let packagingCost;
+        let roundedTotalCost;
+        let profitPercent;
+        let bufferPercent;
+        let roundedLowerSP;
+        let roundedUpperSP;
+
+
+        $('.calculator-form').submit(function (e) {
+          e.preventDefault();
+          id += 1;
+          sku = $("#skuNumber").val();
+          vendor = $("#vendorName").val();
+          item = $("#itemName").val();
+
+          ourCostWhole = parseFloat($("#ourcostDollars").val())
+          ourCostDecimal = parseFloat($("#ourcostCents").val() / 100)
+          ourCost = ourCostWhole + ourCostDecimal
+
+          shippingWhole = parseFloat($("#ourShippingDollars").val())
+          ourCostDecimal = parseFloat($("#ourShippingCents").val() / 100)
+          shippingCost = shippingWhole + ourCostDecimal
+
+          packagingCostWhole = parseFloat($("#packagingCostDollars").val())
+          packagingCostDecimal = parseFloat($("#packagingCostCents").val() / 100)
+          packagingCost = packagingCostWhole + packagingCostDecimal;
+
+          totalCost = ourCost + shippingCost + packagingCost
+          roundedTotalCost = (totalCost).toFixed(2);
+
+
+          profitPercentWhole = parseFloat($("#profitMarginPercentWhole").val())
+          profitPercentDecimal = parseFloat($("#profitMarginPercentDecimal").val() / 100)
+          profitPercent = profitPercentWhole + profitPercentDecimal
+
+          lowerSellPrice = totalCost + ((profitPercent / 100) * totalCost);
+          roundedLowerSP = (lowerSellPrice).toFixed(2);
+
+
+          bufferPercentWhole = parseFloat($("#bufferWhole").val())
+          bufferPercentDecimal = parseFloat($("#bufferDecimal").val() / 100)
+          bufferPercent = bufferPercentWhole + bufferPercentDecimal;
+
+          uppersellPrice = lowerSellPrice + ((bufferPercent / 100) * totalCost)
+          roundedUpperSP = (uppersellPrice).toFixed(2);
+
+
+          let RounderUpperSale = (uppersellPrice).toFixed(2);
+
+          $("#sellPrice").val(RounderUpperSale);
+        });
+
+
+        // Reset table when reset button is clicked
+        $(".resetTable").click(function () {
+          $('.calculator-form').trigger("reset");
+
+          $("#table > tbody").empty();
+          id = 0;
+          sku = null;
+          vendor = null;
+          item = null;
+          ourCost = null;
+          shippingCost = null;
+          packagingCost = null;
+          roundedTotalCost = null;
+          profitPercent = null;
+          bufferPercent = null;
+          roundedLowerSP = null;
+          roundedUpperSP = null;
+        });
+
+
+
+
+
+        // Code to print table when print button is clicked
+        function printDiv() {
+          var divToPrint = document.getElementById('table');
+          var htmlToPrint = '' +
+            '<style type="text/css">' +
+            'table th, table td {' +
+            'border-right:1px solid lightgray; border-bottom: 1px solid lightgray; font-family: Arial; font-size: 10px;padding: 8px;' +
+            '}' +
+            '</style>';
+          htmlToPrint += divToPrint.outerHTML;
+          newWin = window.open("");
+          newWin.document.write(htmlToPrint);
+          newWin.print();
+          newWin.close();
+        }
+
+
+
+
+        // Add record to the table when add button is clicked
+        jQuery(document).delegate('a.add-record', 'click', function (e) {
+          e.preventDefault();
+          if (roundedUpperSP === undefined || roundedUpperSP === null) {
+            return false
+          } else {
+
+            $("#tbl_posts_body")
+              .append($('<tr id=' + id + '>' +
+                '<td>' + id + '</td>' +
+                '<td>' + sku + '</td>' +
+                '<td>' + vendor + '</td>' +
+                '<td>' + item + '</td>' +
+                '<td>' + ourCost + '</td>' +
+                '<td>' + shippingCost + '</td>' +
+                '<td>' + packagingCost + '</td>' +
+                '<td>' + roundedTotalCost + '</td>' +
+                '<td>' + profitPercent + '</td>' +
+                '<td>' + bufferPercent + '</td>' +
+                '<td>' + roundedLowerSP + '</td>' +
+                '<td>' + roundedUpperSP + '</td>' +
+                '<td>' + '<a class="delete-record" id=' + id + '>' + "Del" + '</a>' + '</td>' +
+
+                '</tr>'));
+          }
+        });
+
+        // Delete table row when Del button is clicked
+        jQuery(document).delegate('a.delete-record', 'click', function (e) {
+          e.preventDefault();
+          var didConfirm = confirm("Are you sure You want to delete ");
+          if (didConfirm == true) {
+
+            var rowId = $(this).attr('id');
+            $("#" + rowId).remove();
+
+          } else {
+            return false;
+          }
+        });
+      </script>
+</body>
+
+</html>

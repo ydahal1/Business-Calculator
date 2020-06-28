@@ -1,0 +1,149 @@
+body {
+    padding-top: 20px;
+   
+  }
+
+.calculator-form{
+      border: 1px solid lightgray;
+      padding : 20px;
+  }
+.form-group{
+    margin-bottom: 5px !important;
+}
+  .resetButton{
+      margin-left: 10px;
+  }
+
+  .add-record{
+      margin-left: 10px;
+  }
+
+  label{
+      font-size: 11px;
+      color: gray
+  }
+
+  .printBtn {
+      margin-bottom: 10px;
+  }
+
+  .form-control::-webkit-input-placeholder{
+      font-size: 10px;
+  }
+
+  .delete-record{
+      background-color: red;
+      padding: 5px;
+      font-size: 10px;
+      color: white !important;
+  }
+
+  .delete-record:hover{
+    background-color: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
+  table{
+    font-size: 11px;
+    text-align: left
+  }
+
+  input:required {
+    background-position: 280px 0px;
+    color: blue;
+}
+
+.prinAndResetBtns{
+    margin-bottom: 10px;
+}
+.printBtn{
+background: white;
+border: 1px solid blue;
+padding: 6px;
+color: blue !important;
+font-size: 10px;
+}
+
+.printBtn:hover{
+    color: red !important;
+    border: 1px solid red;
+    }
+
+.tableResetBtn{
+    background: white;
+border: 1px solid blue;
+padding: 6px;
+color: blue !important;
+font-size: 10px;
+
+}
+
+.tableResetBtn:hover{
+border: 1px solid red;
+color: red !important;
+}
+
+
+.btn-primary{
+    color: white !important;
+}
+
+.btn-success{
+    color: white !important;
+}
+.btn-warning{
+    color: white !important;
+}
+
+.btn-primary:hover{
+    color: red !important;
+    background: white !important;
+    border:1px solid red !important;
+
+}
+
+.btn-success:hover{
+    color: red !important;
+    background: white !important;
+    border:1px solid red !important;
+
+}
+.btn-warning:hover{
+    color: red !important;
+    background: white !important;
+    border:1px solid red !important;
+
+}
+
+.btn-primary{
+    color: blue !important;
+    background: white !important;
+    font-size: 11px !important;
+}
+
+.btn-success{
+    color: blue !important;
+    background: white !important;
+    font-size: 11px !important;
+    border:1px solid blue !important;
+
+
+}
+.btn-warning{
+    color:blue !important;
+    background: white !important;
+    font-size: 11px !important;
+    border:1px solid blue !important;
+
+
+}
+.footer{
+    margin-top: 80px;
+}
+
+.footerInfo{
+    padding-top: 80px;
+    padding-left: 150px;
+    text-align: center;
+}
